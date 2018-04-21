@@ -1,0 +1,125 @@
+{
+  "name": "2017 Bengali Immigrant Occupation Breakdown",
+  "children": [
+    {
+      "name": "USA",
+      "children": [
+        {
+          "name": "Male",
+          "children": [
+            {"name": "AgglomerativeCluster", "size": 3938},
+            {"name": "CommunityStructure", "size": 3812},
+            {"name": "HierarchicalCluster", "size": 6714},
+            {"name": "MergeEdge", "size": 743}
+          ]
+        },
+        {
+          "name": "Female",
+          "children": [
+            {"name": "BetweennessCentrality", "size": 3534},
+            {"name": "LinkDistance", "size": 5731},
+            {"name": "MaxFlowMinCut", "size": 7840},
+            {"name": "ShortestPaths", "size": 5914},
+            {"name": "SpanningTree", "size": 3416}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "India",
+      "children": [
+        {
+          "name": "Male",
+          "children": [
+            {"name": "AgglomerativeCluster", "size": 3938},
+            {"name": "CommunityStructure", "size": 3812},
+            {"name": "HierarchicalCluster", "size": 6714},
+            {"name": "MergeEdge", "size": 743}
+          ]
+        },
+        {
+          "name": "Female",
+          "children": [
+            {"name": "BetweennessCentrality", "size": 3534},
+            {"name": "LinkDistance", "size": 5731},
+            {"name": "MaxFlowMinCut", "size": 7840},
+            {"name": "ShortestPaths", "size": 5914},
+            {"name": "SpanningTree", "size": 3416}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kuwait",
+      "children": [
+        {
+          "name": "Male",
+          "children": [
+            {"name": "AgglomerativeCluster", "size": 3938},
+            {"name": "CommunityStructure", "size": 3812},
+            {"name": "HierarchicalCluster", "size": 6714},
+            {"name": "MergeEdge", "size": 743}
+          ]
+        },
+        {
+          "name": "Female",
+          "children": [
+            {"name": "BetweennessCentrality", "size": 3534},
+            {"name": "LinkDistance", "size": 5731},
+            {"name": "MaxFlowMinCut", "size": 7840},
+            {"name": "ShortestPaths", "size": 5914},
+            {"name": "SpanningTree", "size": 3416}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Saudi Arabia",
+      "children": [
+        {
+          "name": "Male",
+          "children": [
+            {"name": "AgglomerativeCluster", "size": 3938},
+            {"name": "CommunityStructure", "size": 3812},
+            {"name": "HierarchicalCluster", "size": 6714},
+            {"name": "MergeEdge", "size": 743}
+          ]
+        },
+        {
+          "name": "Female",
+          "children": [
+            {"name": "BetweennessCentrality", "size": 3534},
+            {"name": "LinkDistance", "size": 5731},
+            {"name": "MaxFlowMinCut", "size": 7840},
+            {"name": "ShortestPaths", "size": 5914},
+            {"name": "SpanningTree", "size": 3416}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "United Arab Emirates",
+      "children": [
+        {
+          "name": "Male",
+          "children": [
+            {"name": "AgglomerativeCluster", "size": 3938},
+            {"name": "CommunityStructure", "size": 3812},
+            {"name": "HierarchicalCluster", "size": 6714},
+            {"name": "MergeEdge", "size": 743}
+          ]
+        },
+        {
+          "name": "Female",
+          "children": [
+            {"name": "BetweennessCentrality", "size": 3534},
+            {"name": "LinkDistance", "size": 5731},
+            {"name": "MaxFlowMinCut", "size": 7840},
+            {"name": "ShortestPaths", "size": 5914},
+            {"name": "SpanningTree", "size": 3416}
+          ]
+        }
+      ]
+    }
+  ]
+}
