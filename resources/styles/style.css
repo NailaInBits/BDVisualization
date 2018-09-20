@@ -1,5 +1,5 @@
 body {
-    background: #917164;
+    background: #7E98A9;
     font: 14px sans-serif;
     color: white;
 }
@@ -10,18 +10,27 @@ h1 {
 
 p {
     font-family: 'Quattrocento', serif;
+    padding-left: 3vh;
 
 }
 
 #intro {
-    margin: 3vh;
+    padding: 3vh;
 }
 
 .map {
     width: 100%;
     height: auto;
-    fill: black;
-    background: #689775;
+    fill: white;
+    background: #E3E6F5;
+    margin: 3vh;
+}
+
+.option-select {
+  padding-left: 3vh;
+  fill: #64b646;
+  width: auto;
+  background: white;
 }
 
 path {
@@ -65,3 +74,5 @@ circle.active {
  	border-radius: 8px;
  	pointer-events: none;
 }
+
+

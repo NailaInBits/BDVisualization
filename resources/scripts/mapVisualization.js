@@ -82,6 +82,7 @@ d3.json(worldMapJson, function(error, countries) {
 		let year = 2016;
 		let mapG = svg.append('g');
 		let map = svg.append('g');
+        var config = {};
 
         //Map Styles
 		mapG.selectAll("path")
@@ -128,54 +129,27 @@ d3.json(worldMapJson, function(error, countries) {
 			let scale = d3.scaleLinear().domain(d3.extent(years)).range([margin.left, mapWidth - margin.right]);
 			let timeSvg = d3.select("#timeSvg");
 
-            // Timeline line
-			timeSvg.append('g').append('line')
-				.attr('x1', 0)
-				.attr('y1', timeAxisHeight)
-				.attr('x2', mapWidth)
-				.attr('y2', timeAxisHeight)
-				.attr('stroke', "5,5")
-				.attr('stroke', '#000');
+            var fields = years;
 
-			// Timeline Circles
-			timeSvg.append('g')
-				.selectAll('.year')
-				.data(years).enter()
-				.append('circle')
-				.attr('class', 'year')
-				.attr('cx', d => scale(d))
-				.attr('cy', timeAxisHeight)
-				.attr('year', d => d)
-				.attr('r', 8)
-				.style('fill', 'url(#grad1)')
-				.style('fill-opacity', 1)
-				.on('mouseover', function () {
-					d3.select(this).style('fill', 'url(#grad2)');
-				})
-				.on('mouseout', function () {
-					let target = d3.select(this);
-					if(target.attr('flag') !== 'click') {
-						target.style('fill', 'url(#grad1)');
-					}
-				})
-				.on('click',function () {
-					let target = d3.select(this);
-					d3.selectAll('.year').style('fill', 'url(#grad1)').attr('flag', '');
-					target.attr('flag', 'click');
-					target.style('fill', 'url(#grad2)');
-					year = +target.attr('year');
-					render(year);
-				});
+            var option_select = d3.select('#selectors')
+                 .append("select")
+                 .attr("class", "option-select");
 
-            // Timeline Year
-			timeSvg.append('g')
-				.selectAll('text')
-				.data(years).enter()
-				.append('text')
-				.attr('x', d => scale(d))
-				.attr('y', timeAxisHeight + 20)
-				.text(d => d)
-				.style('text-anchor', 'middle');
+            for (var i = 0; i < fields.length; i++) {
+                if (fields[i] !== config.state) {
+                  var opt = option_select.append("option")
+                    .attr("value", fields[i])
+                    .text(fields[i]);
+
+                  if (fields[i] === config.defaultValue) {
+                    opt.attr("selected", "true");
+                  }
+                }
+            };
+
+            option_select.on('change', function() {
+                render(+d3.select('select').property('value'));
+            });
 
 			function render(year,cause) {
 				map.remove();
@@ -191,15 +165,22 @@ d3.json(worldMapJson, function(error, countries) {
 				}
 				for(let i = 0; i < data.length; i ++) {
 					map.append("circle")
-						.attr("cx", projection([data[i].longitude,data[i].latitude])[0])
-						.attr("cy", projection([data[i].longitude,data[i].latitude])[1])
+						.attr("cx", projection([data[i].longitude, data[i].latitude])[0])
+						.attr("cy", projection([data[i].longitude, data[i].latitude])[1])
 		    			.attr("r", (Math.sqrt(data[i]['num_of_people']))/15)
 						.style("fill", "red");
+                    map.append("line")
+                        .attr("x1", d=>projection([data[i].longitude, data[i].latitude])[0])
+                        .attr("y1", d=>projection([data[i].longitude, data[i].latitude])[1])
+                        .attr("x2", d=>projection([data[i].longitude, data[i].latitude])[0])
+                        .attr("y2", d=>projection([data[i].longitude, data[i].latitude])[1])
+                        .style("fill", "red")
+                        .attr("stroke-width", 10.5);
 				}
 
 				let causeArr = causeArr2.find(d => +d.time === year);
 			}
-			render(2016);
+			render(2017);
 		});
 
         // Sunburst Diagram
