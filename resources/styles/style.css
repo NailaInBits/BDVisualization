@@ -1,7 +1,10 @@
 body {
     background: #7E98A9;
     font: 14px sans-serif;
-    color: white;
+    color: black;
+    display: flex;
+         min-height: 100vh;
+         flex-direction: column;
 }
 
 h1 {
@@ -11,10 +14,17 @@ h1 {
 p {
     font-family: 'Quattrocento', serif;
     padding-left: 3vh;
+}
 
+a {
+    color: #6351CE;
 }
 
 #intro {
+    padding: 3vh;
+}
+
+#diagrams {
     padding: 3vh;
 }
 
@@ -23,11 +33,10 @@ p {
     height: auto;
     fill: white;
     background: #E3E6F5;
-    margin: 3vh;
 }
 
 .option-select {
-  padding-left: 3vh;
+  margin-left: 3vh;
   fill: #64b646;
   width: auto;
   background: white;
@@ -60,6 +69,10 @@ circle.active {
     fill: white;
 }
 
+main {
+    flex: 1 0 auto;
+  }
+
 .tooltip {
     position: absolute;
     left: 1270px;
@@ -76,3 +89,34 @@ circle.active {
 }
 
 
+#tooltip {
+    color: white;
+    opacity: .9;
+    background: #333;
+    padding: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 10;
+    visibility: hidden;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+#circle circle {
+    fill: none;
+    pointer-events: all;
+}
+
+path.group {
+    fill-opacity: .8;
+}
+
+path.chord {
+    stroke: black;
+    stroke-width: .25px;
+}
+
+#circle:hover path.fade {
+    display: none;
+}
