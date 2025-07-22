@@ -1,31 +1,50 @@
 body {
     background: #7E98A9;
-    font: 14px sans-serif;
+    font: 1rem sans-serif;
     color: black;
     display: flex;
-         min-height: 100vh;
-         flex-direction: column;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main {
+    flex: 1 0 auto;
+    padding: 2vh 2vw;
 }
 
 h1 {
-	font-family: 'Oswald', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    margin: 1rem 0;
 }
 
 p {
     font-family: 'Quattrocento', serif;
-    padding-left: 3vh;
+    padding-left: 2vw;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 a {
     color: #6351CE;
+    text-decoration: none;
 }
 
-#intro {
-    padding: 3vh;
+a:hover {
+    text-decoration: underline;
 }
 
+#intro,
 #diagrams {
-    padding: 3vh;
+    padding: 2vh 2vw;
+}
+
+.map-wrapper, .diagram {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 1rem;
 }
 
 .map {
@@ -33,74 +52,70 @@ a {
     height: auto;
     fill: white;
     background: #E3E6F5;
+    max-width: 100%;
 }
 
 .option-select {
-  margin-left: 3vh;
-  fill: #64b646;
-  width: auto;
-  background: white;
+    margin-left: 2vw;
+    background: white;
+    color: #64b646;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
 path {
- 	fill: #a5a5a5;
- 	stroke: #ffdbdb;
- 	stroke-width: 0.08736px;
+    fill: #a5a5a5;
+    stroke: #ffdbdb;
+    stroke-width: 0.1px;
+    transition: fill-opacity .2s;
 }
 
 path:hover {
-	fill-opacity: .7;
+    fill-opacity: 0.7;
 }
 
 circle {
     fill: #689775;
- 	fill-opacity: 0.5;
- 	stroke: white;
+    fill-opacity: 0.5;
+    stroke: white;
+ stroke-width: .5px;
+  transition: transform .2s;
+}
+
+circle:hover {
+  transform: scale(1.2);
+  fill: orange;
 }
 
 circle.active {
     fill: #689775;
 }
 
-.legend {
-	position: absolute;
-	left: 1270px;
-	top: 650px;
-    fill: white;
-}
-
-main {
-    flex: 1 0 auto;
-  }
-
-.tooltip {
+.tooltip, #tooltip {
     position: absolute;
-    left: 1270px;
-    top: 250px;
- 	text-align: center;
- 	width: 50px;
- 	height: 15px;
- 	padding: 2px;
- 	font: 12px sans-serif;
- 	background: #8FB2E9;
- 	border: 0px;
- 	border-radius: 8px;
- 	pointer-events: none;
-}
-
-
-#tooltip {
-    color: white;
-    opacity: .9;
     background: #333;
-    padding: 5px;
-    border: 1px solid lightgrey;
-    border-radius: 5px;
-    position: absolute;
-    z-index: 10;
-    visibility: hidden;
-    white-space: nowrap;
-    pointer-events: none;
+    color: white;
+   padding: .75rem 1rem;
+  font-size: .85rem;
+  border-radius: 4px;
+  pointer-events: none;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.tooltip.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.legend {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 #circle circle {
@@ -109,14 +124,26 @@ main {
 }
 
 path.group {
-    fill-opacity: .8;
+    fill-opacity: 0.8;
 }
 
 path.chord {
     stroke: black;
-    stroke-width: .25px;
+    stroke-width: 0.25px;
 }
 
 #circle:hover path.fade {
     display: none;
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 1.75rem; }
+  section { margin-bottom: 2rem; }
+  .map-wrapper, .diagram {
+    padding: .75rem;
+  }
+  .tooltip {
+    font-size: .8rem;
+    max-width: 80vw;
+  }
 }
