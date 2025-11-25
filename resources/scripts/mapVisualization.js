@@ -118,7 +118,7 @@ d3.json(worldMapJson, function(error, countries) {
 
 			function render(year,cause) {
 				map.remove();
-				map = svg.append('g');
+				map = svg.append("g");
                 map.style("stroke-width", trans["stroke-width"]);
 				map.attr("transform", trans["transform"]);
 				let data = nestD.find(n => +n.key === year);
@@ -126,14 +126,33 @@ d3.json(worldMapJson, function(error, countries) {
 				data = data.values;
 
 				if(cause) {
-					data = data.filter(d=>d['location'] === cause);
+					data = data.filter(d=>d["location"] === cause);
 				}
 				for(let i = 0; i < data.length; i ++) {
 					map.append("circle")
 						.attr("cx", projection([data[i].longitude, data[i].latitude])[0])
 						.attr("cy", projection([data[i].longitude, data[i].latitude])[1])
-		    			.attr("r", (Math.sqrt(data[i]['num_of_people']))/15)
-						.style("fill", "red");
+		    			.attr("r", (Math.sqrt(data[i]["num_of_people"]))/50)
+						.style("fill", "red")
+                        .on('mouseover', function(d) {
+                               console.log(data[i]['num_of_people']);
+                              d3.select(this)
+                                .transition()
+                                .duration(100)
+                                .attr('r', 20);
+                              tooltip.transition()
+                                .duration(200)
+                                .style("opacity", .9);
+                              tooltip.text(data[i]['num_of_people'])
+                                .style("left", (d3.event.pageX) + "px")
+                                .style("top", parseInt(d3.event.pageY - 28) + "px");
+                            })
+                            .on('mouseout', function(d) {
+                              d3.select(this)
+                                .transition()
+                                .duration(100)
+                                .attr("r", (Math.sqrt(data[i]['num_of_people']))/50);
+                            });
 				}
 
 				let causeArr = causeArr2.find(d => +d.time === year);

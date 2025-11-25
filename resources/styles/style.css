@@ -1,5 +1,5 @@
 body {
-    background: #7E98A9;
+    background: #eee6de;
     font: 1rem sans-serif;
     color: black;
     display: flex;
@@ -14,9 +14,11 @@ main {
 }
 
 h1 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
+    font-family: "Fraunces", serif;
+    font-optical-sizing: auto;
+    font-size: 7rem;
     margin: 1rem 0;
+    color: #b72424;
 }
 
 p {
