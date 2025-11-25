@@ -21,20 +21,32 @@ h1 {
     color: #b72424;
 }
 
+h4 {
+    font-family: "Fraunces", serif;
+    font-optical-sizing: auto;`
+    color: #4a7ca5;
+}
+
 p {
-    font-family: 'Quattrocento', serif;
+    font-family: '"Source Sans 3", sans-serif;
     padding-left: 2vw;
     font-size: 1rem;
     line-height: 1.5;
 }
 
 a {
-    color: #6351CE;
+    color: #3a6f4c;
     text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
+}
+
+.navbar {
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 #intro,
