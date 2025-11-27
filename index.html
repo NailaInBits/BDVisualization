@@ -55,16 +55,12 @@
         </div>
     </nav>
 
-    <!-- Visualization Dash -->
+    <!-- Migration Map By Decade -->
     <div class="container-fluid" id="dashboard">
-        <!-- Years Selection -->
-        <div class="row 1">
-            <div class="col-lg-2" id="years">
-            </div>
-            <div class="col-lg-7" id="years">
-                <div id="selectors" style="float:left;"></div>
-                <p style="float:right; font-size: large;"> Bengali Migration World Map </p>
-            </div>
+        <div class="col-lg-12">
+            <select id="yearSelector"></select>
+            <div id="map"></div>
+            <script src="resources/scripts/LandingPageMap.js"></script>
         </div>
     </div>
 
@@ -75,19 +71,5 @@
             </div>
         </div>
     </div>
-
-    <!--Footer
-    <footer class="page-footer font-medium">
-        
-            <div class="container">
-                <div class="row py-4 d-flex">
-                    <div class="col-md-6 col-lg-5">
-                        <p><a class="mb-0 white-text text-md-left" href="https://nishatanjum.com/"> Nishat Anjum 2018 </a></p>
-                    </div>
-            </div>
-        </div>
-    </footer>-->
-
-    <script src="resources/scripts/mapVisualization.js"></script>
 </body>
 </html>
